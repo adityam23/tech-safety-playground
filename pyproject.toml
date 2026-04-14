@@ -1,0 +1,24 @@
+[project]
+name = "techsafety"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.14"
+dependencies = [
+    "datasets>=4.8.4",
+    "mlflow>=3.11.1",
+    "numpy>=2.4.3",
+    "pandas>=2.3.3",
+    "plotly>=6.7.0",
+    "pyyaml>=6.0.3",
+    "sae-lens>=6.39.0",
+    "torch>=2.11.0",
+    "torchvision>=0.26.0",
+    "transformer-lens>=2.18.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.20.1",
+    "pytest>=9.0.3",
+    "ruff>=0.15.10",
+]

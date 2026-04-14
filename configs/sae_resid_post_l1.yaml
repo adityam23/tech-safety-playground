@@ -1,0 +1,22 @@
+# SAE config for blocks.1.hook_resid_post
+model_name: gelu-2l
+hook_point: blocks.1.hook_resid_post
+d_model: 512
+expansion_factor: 8
+d_sae: 4096  # 8 * 512
+
+# Training hyperparameters
+l1_coefficient: 5.0e-3
+learning_rate: 3.0e-4
+batch_size: 4096
+context_length: 128
+total_training_tokens: 100_000_000
+activation_store_buffer_size: 262144  # ~256k tokens
+
+# Architecture
+activation_function: relu
+normalization: none
+optimizer: adam
+
+# Reproducibility
+seed: 42
