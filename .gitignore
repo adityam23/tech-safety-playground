@@ -14,6 +14,10 @@ wandb/
 activation_cache/
 *.log
 
+# Dev tool instructions (keep local only)
+CLAUDE.md
+AGENTS.md
+
 # OS
 .DS_Store
 Thumbs.db

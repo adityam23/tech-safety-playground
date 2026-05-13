@@ -2467,6 +2467,7 @@ dependencies = [
     { name = "torch" },
     { name = "torchvision" },
     { name = "transformer-lens" },
+    { name = "wandb" },
 ]
 
 [package.dev-dependencies]
@@ -2488,6 +2489,7 @@ requires-dist = [
     { name = "torch", specifier = ">=2.11.0" },
     { name = "torchvision", specifier = ">=0.26.0" },
     { name = "transformer-lens", specifier = ">=2.18.0" },
+    { name = "wandb", specifier = ">=0.26.0" },
 ]
 
 [package.metadata.requires-dev]

@@ -1,7 +1,7 @@
 [project]
 name = "techsafety"
 version = "0.1.0"
-description = "Add your description here"
+description = "Sparse autoencoders on the gelu-2l residual stream for mechanistic interpretability and activation steering"
 requires-python = ">=3.14"
 dependencies = [
     "datasets>=4.8.4",
@@ -14,6 +14,7 @@ dependencies = [
     "torch>=2.11.0",
     "torchvision>=0.26.0",
     "transformer-lens>=2.18.0",
+    "wandb>=0.26.0",
 ]
 
 [dependency-groups]

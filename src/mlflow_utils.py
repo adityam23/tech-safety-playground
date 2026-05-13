@@ -22,7 +22,7 @@ def get_git_sha() -> str:
             check=True,
         )
         return result.stdout.strip()
-    except subprocess.CalledProcessError, FileNotFoundError:
+    except (subprocess.CalledProcessError, FileNotFoundError):
         return "unknown"
 
 
