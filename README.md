@@ -26,3 +26,9 @@ Sparse autoencoders trained on the gelu-2l residual stream at three hook points.
 Explainable AI analysis of Kickstarter crowdfunding data using SHAP, LIME (with DICE variant), and XGBoost. Replicates and extends a published study on sustainability-oriented crowdfunding. Tracked as a git submodule.
 
 **Setup:** `cd projects/explainable-crowdfunding-ml && uv sync`
+
+### [activation-oracles](projects/activation-oracles/)
+
+Activation Oracles (Karvonen et al., Dec 2025) -- train an LLM to accept its own residual stream activations and answer natural-language questions about them. Qwen2.5-0.5B as both target and oracle, LoRA-trained on SST-2 sentiment classification as a proof of concept.
+
+**Setup:** `cd projects/activation-oracles && uv sync`
