@@ -49,15 +49,19 @@ def apply_lora(model: nn.Module, config: dict) -> nn.Module:
 
 def _resolve_layers(model: nn.Module):
     """Resolve the transformer layers regardless of PEFT wrapping."""
-    m = model
-    # Walk through possible wrappers: PeftModel -> LoraModel -> BaseModel
-    if hasattr(m, "base_model"):
-        m = m.base_model
-    if hasattr(m, "model") and hasattr(m.model, "layers"):
-        return m.model.layers
-    if hasattr(m, "layers"):
-        return m.layers
-    raise AttributeError(f"Cannot find transformer layers in {type(model)}")
+    # Check for PEFT wrapping: PeftModel -> base_model -> LoraModel -> model -> HF Model
+    if hasattr(model, "base_model"):
+        model = model.base_model
+    # Walk through possible wrappers to reach the inner transformer
+    if hasattr(model, "model"):
+        inner = model.model
+        while hasattr(inner, "model") and not hasattr(inner, "layers"):
+            inner = inner.model
+        if hasattr(inner, "layers"):
+            return inner.layers
+    if hasattr(model, "layers"):
+        return model.layers
+    raise AttributeError(f"Cannot find transformer layers in {type(model).__name__}")
 
 
 def get_injection_layer(model: nn.Module) -> int:

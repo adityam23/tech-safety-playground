@@ -1,0 +1,35 @@
+# Quick training config for verification
+model_name: Qwen/Qwen2.5-0.5B-Instruct
+d_model: 896
+n_layers: 24
+activation_depth: 0.5
+injection_layer: 1
+placeholder_token: " ?"
+torch_dtype: bfloat16
+device: cuda
+
+# LoRA
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+# Training (scaled down for verification)
+learning_rate: 1.0e-5
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 1
+max_seq_length: 256
+num_train_epochs: 1
+warmup_ratio: 0.1
+weight_decay: 0.01
+max_grad_norm: 1.0
+gradient_checkpointing: false
+
+# Dataset (small subset)
+dataset_name: stanfordnlp/sst2
+max_train_samples: 2000
+max_eval_samples: 300
+
+# Output
+output_dir: outputs/ao_qwen05b_quick
+seed: 42
