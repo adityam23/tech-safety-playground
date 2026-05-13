@@ -5,6 +5,7 @@ from __future__ import annotations
 import torch
 
 from src.model import (
+    _resolve_layers,
     extract_activation,
     generate_with_steering,
     get_activation_layer,
@@ -24,7 +25,8 @@ def test_load_model_and_extract_activation() -> None:
     tokenizer = load_tokenizer(MODEL_NAME)
     model = load_base_model(MODEL_NAME)
 
-    n_layers = len(model.model.layers)
+    layers = _resolve_layers(model)
+    n_layers = len(layers)
     assert n_layers == 24, f"Expected 24 layers, got {n_layers}"
 
     act_layer = get_activation_layer(model, 0.5)
@@ -56,7 +58,7 @@ def test_steering_hook_fires() -> None:
         nonlocal baseline_h
         baseline_h = output[0].detach().clone()
 
-    h1 = model.model.layers[1].register_forward_hook(capture_baseline)
+    h1 = _resolve_layers(model)[1].register_forward_hook(capture_baseline)
     try:
         with torch.inference_mode():
             model(**inputs)
@@ -73,8 +75,8 @@ def test_steering_hook_fires() -> None:
 
     from src.model import make_steering_hook
     steer_hook_fn = make_steering_hook(activation, placeholder_positions=None)
-    h_s = model.model.layers[1].register_forward_hook(steer_hook_fn)
-    h_c = model.model.layers[1].register_forward_hook(capture_steered)
+    h_s = _resolve_layers(model)[1].register_forward_hook(steer_hook_fn)
+    h_c = _resolve_layers(model)[1].register_forward_hook(capture_steered)
     try:
         with torch.inference_mode():
             model(**inputs)

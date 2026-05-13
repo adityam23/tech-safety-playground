@@ -47,12 +47,26 @@ def apply_lora(model: nn.Module, config: dict) -> nn.Module:
     return get_peft_model(model, lora_cfg)
 
 
+def _resolve_layers(model: nn.Module):
+    """Resolve the transformer layers regardless of PEFT wrapping."""
+    m = model
+    # Walk through possible wrappers: PeftModel -> LoraModel -> BaseModel
+    if hasattr(m, "base_model"):
+        m = m.base_model
+    if hasattr(m, "model") and hasattr(m.model, "layers"):
+        return m.model.layers
+    if hasattr(m, "layers"):
+        return m.layers
+    raise AttributeError(f"Cannot find transformer layers in {type(model)}")
+
+
 def get_injection_layer(model: nn.Module) -> int:
     return 1
 
 
 def get_activation_layer(model: nn.Module, depth_frac: float = 0.5) -> int:
-    return int(depth_frac * model.config.num_hidden_layers)
+    layers = _resolve_layers(model)
+    return int(depth_frac * len(layers))
 
 
 def extract_activation(
@@ -77,7 +91,8 @@ def extract_activation(
         else:
             captured = output.detach().clone()
 
-    handle = model.model.layers[target_layer].register_forward_hook(hook_fn)
+    layers = _resolve_layers(model)
+    handle = layers[target_layer].register_forward_hook(hook_fn)
     try:
         with torch.inference_mode():
             model(**inputs)
@@ -154,7 +169,8 @@ def generate_with_steering(
 
     steer_hook = make_steering_hook(activation, placeholder_positions)
 
-    handle = model.model.layers[injection_layer].register_forward_hook(steer_hook)
+    layers = _resolve_layers(model)
+    handle = layers[injection_layer].register_forward_hook(steer_hook)
     try:
         with torch.inference_mode():
             output_ids = model.generate(
