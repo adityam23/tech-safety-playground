@@ -44,15 +44,10 @@ PYTHONPATH=. uv run python src/eval.py \
 ## Results (2000 examples, SST-2)
 
 - **Training loss:** 3.82 -> 1.45 over 1 epoch
-- **Eval accuracy:** 100% on 300 held-out examples
+- **Eval accuracy:** 100% on 300 held-out SST-2 examples
 - **VRAM:** ~2 GB during training (batch=1, LoRA)
 
-## Limitations
-
-- Qwen2.5-0.5B is below the 1B minimum tested in the paper. OOD generalization is expected to be weak.
-- Trained on a single classification task (SST-2 sentiment). Not the full paper's diverse dataset mixture.
-- No context prediction task included. No multi-depth training (25%/50%/75% layer sampling).
-- Full paper-scale training requires ~1M examples and 65M tokens.
+Despite the paper's expectation that models below 1B would show weak OOD generalization, this 0.5B AO achieves perfect in-distribution accuracy on a sentiment task it was trained on. This is likely because SST-2 sentiment is a simple classification problem -- the pre-trained Qwen2.5-0.5B instruct model already has a strong internal representation of sentiment polarity, and the LoRA adapter only needs to learn the mapping from injected activation space to a yes/no verbalization of what the model already knows. Perfect accuracy on 300 held-out in-distribution examples is a verification that the activation injection mechanism works, not evidence that the paper's OOD warning is wrong. The harder test would be on an auditing task the model was never trained to verbalize, which remains to be evaluated.
 
 ## References
 
