@@ -1,4 +1,4 @@
-# Tech Safety Playground
+# AI Safety Playground
 
 A monorepo of AI safety experiments: mechanistic interpretability, model control, and explainable AI. Each project explores a different technique for understanding or steering model behavior.
 
