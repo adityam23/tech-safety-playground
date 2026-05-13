@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset='utf-8'>
+<title>Activation Oracle Evaluation</title>
+<style>
+body{font-family:sans-serif;max-width:900px;margin:0 auto;padding:20px;}
+h1{color:#333;}
+.summary{background:#f5f5f5;padding:15px;border-radius:5px;margin:15px 0;}
+.result{margin:8px 0;padding:10px;border-radius:4px;}
+.correct{background:#e8f5e9;border-left:4px solid #4caf50;}
+.incorrect{background:#ffebee;border-left:4px solid #f44336;}
+.text{font-style:italic;color:#555;}
+.pred{font-family:monospace;}
+.label-correct{color:#2e7d32;font-weight:bold;}
+.label-incorrect{color:#c62828;font-weight:bold;}
+</style>
+</head><body>
+<h1>Activation Oracle Evaluation</h1>
+<div class='summary'>
+<p><b>Model:</b> Qwen/Qwen2.5-0.5B-Instruct</p>
+<p><b>LoRA adapter:</b> outputs/ao_qwen05b_quick</p>
+<p><b>Task:</b> Sentiment classification (SST-2)</p>
+<p><b>Accuracy:</b> 50/50 (100.0%)</p>
+</div>
+<h2>Sample Results</h2>
+<div class='result correct'>
+<div class='text'>it gets onto the screen just about as much of the novella as one could reasonably expect , and is engrossing and moving </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>my big fat greek wedding uses stereotypes in a delightful blend of sweet romance and lovingly dished out humor . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>for the most part , director anne-sophie birot &#x27;s first feature is a sensitive , extraordinarily well-acted drama . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>cq &#x27;s reflection of artists and the love of cinema-and-self suggests nothing less than a new voice that deserves to be c</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>charles &#x27; entertaining film chronicles seinfeld &#x27;s return to stand-up comedy after the wrap of his legendary sitcom , al</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>and that leaves a hole in the center of the salton sea . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>the film tunes into a grief that could lead a man across centuries . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>or doing last year &#x27;s taxes with your ex-wife . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>the weight of the piece , the unerring professionalism of the chilly production , and the fascination embedded in the lu</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>too much of it feels unfocused and underdeveloped . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>the affectionate loopiness that once seemed congenital to demme &#x27;s perspective has a tough time emerging from between th</div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>you &#x27;ll gasp appalled and laugh outraged and possibly , watching the spectacle of a promising young lad treading despera</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>a movie with a real anarchic flair . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>fresnadillo &#x27;s dark and jolting images have a way of plying into your subconscious like the nightmare you had a week ago</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>aside from minor tinkering , this is the same movie you probably loved in 1994 , except that it looks even better . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>an unclassifiably awful study in self - and audience-abuse . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>a beguiling splash of pastel colors and prankish comedy from disney . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>sam mendes has become valedictorian at the school for soft landings and easy ways out . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>true tale of courage -- and complicity -- at auschwitz is a harrowing drama that tries to tell of the unspeakable . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>his comedy premises are often hackneyed or just plain crude , calculated to provoke shocked laughter , without following</div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>it treats women like idiots . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>the quality of the art combined with the humor and intelligence of the script allow the filmmakers to present the biblic</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>nicks , seemingly uncertain what &#x27;s going to make people laugh , runs the gamut from stale parody to raunchy sex gags to</div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>the last 20 minutes are somewhat redeeming , but most of the movie is the same teenage american road-trip drek we &#x27;ve se</div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>it &#x27;s too bad that the helping hand he uses to stir his ingredients is also a heavy one . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>the most hopelessly monotonous film of the year , noteworthy only for the gimmick of being filmed as a single unbroken 8</div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>in the end , we are left with something like two ships passing in the night rather than any insights into gay love , chi</div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>not far beneath the surface , this reconfigured tale asks disturbing questions about those things we expect from militar</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>samira makhmalbaf &#x27;s new film blackboards is much like the ethos of a stream of consciousness , although , it &#x27;s unfortu</div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>no screen fantasy-adventure in recent memory has the showmanship of clones &#x27; last 45 minutes . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>more romantic , more emotional and ultimately more satisfying than the teary-eyed original . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>a solid examination of the male midlife crisis . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>filmmakers who can deftly change moods are treasures and even marvels . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>part low rent godfather . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>nothing &#x27;s at stake , just a twisty double-cross you can smell a mile away -- still , the derivative nine queens is lots</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>i &#x27;ll bet the video game is a lot more fun than the film . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>bennett &#x27;s naturalistic performance speaks volumes more truth than any ` reality &#x27; show , and anybody contemplating thei</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>a cartoon that &#x27;s truly cinematic in scope , and a story that &#x27;s compelling and heartfelt -- even if the heart belongs t</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>late marriage &#x27;s stiffness is unlikely to demonstrate the emotional clout to sweep u.s. viewers off their feet . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>may be far from the best of the series , but it &#x27;s assured , wonderfully respectful of its past and thrilling enough to </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>though it &#x27;s become almost redundant to say so , major kudos go to leigh for actually casting people who look working-cl</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>chabrol has taken promising material for a black comedy and turned it instead into a somber chamber drama . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>the longer the movie goes , the worse it gets , but it &#x27;s actually pretty good in the first few minutes . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>morton uses her face and her body language to bring us morvern &#x27;s soul , even though the character is almost completely </div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>( næs ) directed the stage version of elling , and gets fine performances from his two leads who originated the characte</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>a subject like this should inspire reaction in its audience ; the pianist does not . </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>it confirms fincher &#x27;s status as a film maker who artfully bends technical know-how to the service of psychological insi</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>a densely constructed , highly referential film , and an audacious return to form that can comfortably sit among jean-lu</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+<div class='result correct'>
+<div class='text'>( director ) o&#x27;fallon manages to put some lovely pictures up on the big screen , but his skill at telling a story -- he </div>
+<div class='pred'>
+Expected: <span class='label-correct'>no</span> | 
+Predicted: no
+</div></div>
+<div class='result correct'>
+<div class='text'>what the film lacks in general focus it makes up for in compassion , as corcuera manages to find the seeds of hope in th</div>
+<div class='pred'>
+Expected: <span class='label-correct'>yes</span> | 
+Predicted: yes
+</div></div>
+</body></html>

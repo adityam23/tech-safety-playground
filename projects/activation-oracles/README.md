@@ -49,6 +49,8 @@ PYTHONPATH=. uv run python src/eval.py \
 
 Despite the paper's expectation that models below 1B would show weak OOD generalization, this 0.5B AO achieves perfect in-distribution accuracy on a sentiment task it was trained on. This is likely because SST-2 sentiment is a simple classification problem -- the pre-trained Qwen2.5-0.5B instruct model already has a strong internal representation of sentiment polarity, and the LoRA adapter only needs to learn the mapping from injected activation space to a yes/no verbalization of what the model already knows. Perfect accuracy on 300 held-out in-distribution examples is a verification that the activation injection mechanism works, not evidence that the paper's OOD warning is wrong. The harder test would be on an auditing task the model was never trained to verbalize, which remains to be evaluated.
 
+[View full eval report](eval_report.html)
+
 ## References
 
 - Karvonen et al., ["Activation Oracles"](https://arxiv.org/abs/2512.15674) (Dec 2025)
