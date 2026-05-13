@@ -7,7 +7,8 @@ Train sparse autoencoders (SAEs) on the residual stream of **gelu-2l** -- a 2-la
 **Requirements:** NVIDIA GPU with >=6 GB VRAM, CUDA 12.8+, Python 3.14+, [`uv`](https://docs.astral.sh/uv/).
 
 ```bash
-git clone <repo-url> && cd projects/sparse-autoencoders
+git clone --recurse-submodules https://github.com/adityam23/tech-safety-playground.git
+cd tech-safety-playground/projects/sparse-autoencoders
 uv sync
 uv run pytest tests/ -v
 ```
