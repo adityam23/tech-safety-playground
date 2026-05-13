@@ -21,7 +21,7 @@ Sparse autoencoders trained on the gelu-2l residual stream at three hook points.
 
 **Setup:** `cd projects/sparse-autoencoders && uv sync`
 
-### [explainable-crowdfunding-ml](projects/explainable-crowdfunding-ml/)
+### [explainable-crowdfunding-ml](https://github.com/adityam23/explainable-crowdfunding-ml)
 
 Explainable AI analysis of Kickstarter crowdfunding data using SHAP, LIME (with DICE variant), and XGBoost. Replicates and extends a published study on sustainability-oriented crowdfunding. Tracked as a git submodule.
 
