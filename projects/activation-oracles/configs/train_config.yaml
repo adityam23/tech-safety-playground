@@ -1,0 +1,35 @@
+# Activation Oracle training config for Qwen2.5-0.5B-Instruct
+model_name: Qwen/Qwen2.5-0.5B-Instruct
+d_model: 896
+n_layers: 24
+activation_depth: 0.5         # fraction of layers for target activation extraction
+injection_layer: 1            # oracle layer index for activation injection (0-indexed)
+placeholder_token: " ?"       # placeholder for activation positions in oracle prompt
+torch_dtype: bfloat16
+device: cuda
+
+# LoRA
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target_modules: ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+
+# Training
+learning_rate: 1.0e-5
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 16
+max_seq_length: 256
+num_train_epochs: 1
+warmup_ratio: 0.1
+weight_decay: 0.01
+max_grad_norm: 1.0
+gradient_checkpointing: true
+
+# Dataset
+dataset_name: sst2           # simple binary classification to start
+max_train_samples: 20000
+max_eval_samples: 2000
+
+# Output
+output_dir: outputs/ao_qwen05b
+seed: 42
