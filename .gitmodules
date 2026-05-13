@@ -1,0 +1,3 @@
+[submodule "projects/explainable-crowdfunding-ml"]
+	path = projects/explainable-crowdfunding-ml
+	url = git@github.com:adityam23/explainable-crowdfunding-ml.git
